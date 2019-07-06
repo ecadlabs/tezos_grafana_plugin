@@ -1,2 +1,3 @@
-# tezos_grafana_plugin
-A Grafana Data Source Plugin (and dashboard) for the Tezos Blockchain
+# A Tezos Grafana Data Source Plugin (and Dashboard)
+
+This is the future home of the Tezos Grafana Data Source Plugin.
