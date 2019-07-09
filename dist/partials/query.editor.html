@@ -1,0 +1,30 @@
+<label class="gf-form-label query-keyword">Query Type</label>
+<div class="gf-form-select-wrapper">
+  <select
+    class="gf-form-input gf-size-auto"
+    ng-model="ctrl.target.queryType"
+    ng-options="f.value as f.text for f in ctrl.queryTypes"
+    ng-change="ctrl.onSave()"
+  >
+  </select>
+</div>
+<label class="gf-form-label query-keyword">Sub query type</label>
+<div class="gf-form-select-wrapper">
+  <select
+    class="gf-form-input gf-size-auto"
+    ng-model="ctrl.target.subQueryType"
+    ng-options="f.value as f.text for f in ctrl.subQueryTypes"
+    ng-change="ctrl.onSave()"
+  >
+  </select>
+</div>
+<div ng-if="ctrl.showAccount">
+  <label class="gf-form-label query-keyword">PKH to query</label>
+  <input
+    class="gf-form-input"
+    rows="5"
+    ng-model="ctrl.target.address"
+    spellcheck="false"
+    ng-blur="ctrl.onSave()"
+  />
+</div>
