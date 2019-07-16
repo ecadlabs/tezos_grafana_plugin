@@ -1,6 +1,7 @@
 import { QueryCtrl } from 'grafana/app/plugins/sdk';
 import { queries } from './queries/account';
 import { blockQueries } from './queries/block';
+import { contractQueries } from './queries/contract';
 
 export class TezosQueryCtrl extends QueryCtrl {
   static templateUrl = 'partials/query.editor.html';
@@ -15,9 +16,17 @@ export class TezosQueryCtrl extends QueryCtrl {
     text: display_name
   }));
 
+  contractSubQueryTypes = contractQueries.map(
+    ({ display_name, query_type }) => ({
+      value: query_type,
+      text: display_name
+    })
+  );
+
   queryTypes = [
     { value: 'block', text: 'Block', defaults: blockQueries },
-    { value: 'account', text: 'Account', defaults: queries }
+    { value: 'account', text: 'Account', defaults: queries },
+    { value: 'contract', text: 'Contract', defaults: contractQueries }
   ];
 
   /** @ngInject **/
@@ -43,6 +52,8 @@ export class TezosQueryCtrl extends QueryCtrl {
     switch (this.target.queryType) {
       case 'account':
         return this.accountSubQueryTypes;
+      case 'contract':
+        return this.contractSubQueryTypes;
       default:
         return this.blockSubQueryTypes;
     }
@@ -50,5 +61,9 @@ export class TezosQueryCtrl extends QueryCtrl {
 
   get showAccount() {
     return this.target && this.target.queryType === 'account';
+  }
+
+  get showContract() {
+    return this.target && this.target.queryType === 'contract';
   }
 }

@@ -28,3 +28,40 @@
     ng-blur="ctrl.onSave()"
   />
 </div>
+
+<div ng-if="ctrl.showContract">
+  <label class="gf-form-label query-keyword">PKH to query</label>
+  <input
+    class="gf-form-input"
+    rows="5"
+    ng-model="ctrl.target.address"
+    spellcheck="false"
+    ng-blur="ctrl.onSave()"
+  />
+  <div ng-if="ctrl.target.subQueryType == 'contract_storage'">
+    <label class="gf-form-label query-keyword">Storage property</label>
+  </div>
+  <div ng-if="ctrl.target.subQueryType == 'contract_transactions'">
+    <label class="gf-form-label query-keyword">Transaction property</label>
+  </div>
+  <div ng-if="ctrl.target.subQueryType == 'contract_transaction_param'">
+    <label class="gf-form-label query-keyword"
+      >Transaction parameter property</label
+    >
+  </div>
+  <div ng-if="ctrl.target.subQueryType == 'contract_big_map_storage'">
+    <label class="gf-form-label query-keyword">Big map property</label>
+  </div>
+  <div>
+    Syntax for this field is: $ to select the root of the object, if you want to
+    select a nested property of the object you can do it by doing
+    $.accounts.tz1233242352354234324.balance
+  </div>
+  <input
+    class="gf-form-input"
+    rows="5"
+    ng-model="ctrl.target.idx"
+    spellcheck="false"
+    ng-blur="ctrl.onSave()"
+  />
+</div>

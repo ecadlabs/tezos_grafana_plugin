@@ -1,5 +1,5 @@
-import { RPCClient } from '../rpc';
 import { parseNumber, parseString } from '../response_parser';
+import { RPCClient } from '../rpc';
 
 class AccountBalanceQuery {
   static query_type = 'balance';

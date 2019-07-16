@@ -1,5 +1,10 @@
 export type Balance = string;
-export type Contract = { counter: string; balance: string; manager: string };
+export type Contract = {
+  timestamp: string;
+  counter: string;
+  balance: string;
+  manager: string;
+};
 export type Context = {
   blocks_per_cycle: string;
   blocks_per_voting_period: string;

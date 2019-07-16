@@ -1,6 +1,8 @@
 import { RPCClient } from './rpc';
 import { queries } from './queries/account';
 import { blockQueries } from './queries/block';
+import { contractQueries } from './queries/contract';
+import { Tzscan } from './tzscan';
 
 interface QueryResponse {
   data: { datapoints: [(number | string)[]]; target: string }[];
@@ -12,6 +14,7 @@ export class GenericDatasource {
   name: string;
   backendSrv: any;
   rpc: RPCClient;
+  tzscan: Tzscan;
 
   constructor(instanceSettings, backendSrv, private templateSrv) {
     this.type = instanceSettings.type;
@@ -19,6 +22,7 @@ export class GenericDatasource {
     this.name = instanceSettings.name;
     this.backendSrv = backendSrv;
     this.rpc = new RPCClient(this.url, this.backendSrv);
+    this.tzscan = new Tzscan(instanceSettings.jsonData.tzscanURL);
   }
 
   prepareQueryTarget(target, options) {
@@ -30,13 +34,26 @@ export class GenericDatasource {
     );
     return interpolated;
   }
-
   query(options: any): Promise<QueryResponse> {
     const q = options.targets.map(target => {
       const queryType = target.queryType;
       const subQueryType = target.subQueryType;
       let returnedQuery: any = null;
       switch (queryType) {
+        case 'contract':
+          const contractQuery = contractQueries.find(
+            x => x.query_type == subQueryType
+          );
+
+          if (contractQuery) {
+            returnedQuery = new contractQuery().query(
+              this.rpc,
+              this.tzscan,
+              this.prepareQueryTarget(target.address, options),
+              target.idx,
+              options.range
+            );
+          }
         case 'account':
           const query = queries.find(x => x.query_type == subQueryType);
 
@@ -66,15 +83,19 @@ export class GenericDatasource {
           return x.map(y => {
             return {
               ...y,
-              target: target.target
+              target: `${queryType} ${subQueryType}`
             };
           });
+        }
+
+        if ('target' in x) {
+          return x;
         }
 
         return [
           {
             ...x,
-            target: target.target
+            target: `${queryType} ${subQueryType}`
           }
         ];
       });
@@ -85,7 +106,7 @@ export class GenericDatasource {
     });
   }
   testDatasource() {
-    return this.rpc.head().then(response => {
+    return Promise.all([this.rpc.head(), this.tzscan.head()]).then(response => {
       return {
         status: 'success',
         message: 'Data source is working',
