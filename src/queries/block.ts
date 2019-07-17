@@ -1,4 +1,4 @@
-import { RPCClient } from '../rpc';
+import { RPCClient } from '../data/rpc';
 import { parseNumber, parseString } from '../response_parser';
 
 class BlockLevelQuery {

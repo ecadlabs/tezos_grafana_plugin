@@ -1,8 +1,10 @@
-import { RPCClient } from './rpc';
+import { RPCClient } from './data/rpc';
 import { queries } from './queries/account';
 import { blockQueries } from './queries/block';
 import { contractQueries } from './queries/contract';
-import { Tzscan } from './tzscan';
+import { Tzscan } from './data/tzscan';
+import { miscQueries } from './queries/misc';
+import { KrakenAPI } from './data/cryptocompare';
 
 interface QueryResponse {
   data: { datapoints: [(number | string)[]]; target: string }[];
@@ -15,6 +17,7 @@ export class GenericDatasource {
   backendSrv: any;
   rpc: RPCClient;
   tzscan: Tzscan;
+  api: KrakenAPI;
 
   constructor(instanceSettings, backendSrv, private templateSrv) {
     this.type = instanceSettings.type;
@@ -23,6 +26,7 @@ export class GenericDatasource {
     this.backendSrv = backendSrv;
     this.rpc = new RPCClient(this.url, this.backendSrv);
     this.tzscan = new Tzscan(instanceSettings.jsonData.tzscanURL);
+    this.api = new KrakenAPI(this.backendSrv);
   }
 
   prepareQueryTarget(target, options) {
@@ -71,6 +75,15 @@ export class GenericDatasource {
 
           if (blockQuery) {
             returnedQuery = new blockQuery().query(this.rpc) as any;
+          }
+        case 'misc':
+          const miscQuery = miscQueries.find(x => x.query_type == subQueryType);
+
+          if (miscQuery) {
+            returnedQuery = new miscQuery().query(
+              this.api,
+              options.range
+            ) as any;
           }
       }
 

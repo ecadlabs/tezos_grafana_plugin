@@ -1,4 +1,4 @@
-import { Contract, Balance, Block, Context } from './model';
+import { Contract, Balance, Block, Context } from '../model';
 
 export class RPCClient {
   private rpcHeadEndpoint = '/chains/main/blocks/';

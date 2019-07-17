@@ -1,8 +1,8 @@
-import { RPCClient } from '../rpc';
+import { RPCClient } from '../data/rpc';
 import { parseString } from '../response_parser';
 import * as _ from 'lodash';
 import moment from 'moment';
-import { Tzscan } from '../tzscan';
+import { Tzscan } from '../data/tzscan';
 import { Schema, ParameterSchema } from '@ecadlabs/tezos-parser';
 
 interface Transaction {

@@ -86,10 +86,10 @@ define(["app/plugins/sdk"], function(__WEBPACK_EXTERNAL_MODULE_grafana_app_plugi
 /************************************************************************/
 /******/ ({
 
-/***/ "../../tezos_parser/dist/parser.es5.js":
-/*!***************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/dist/parser.es5.js ***!
-  \***************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/dist/parser.es5.js":
+/*!*****************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/dist/parser.es5.js ***!
+  \*****************************************************************/
 /*! exports provided: Schema, ParameterSchema */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -160,7 +160,7 @@ var Token = /** @class */ (function () {
     return Token;
 }());
 
-var bs58check = __webpack_require__(/*! bs58check */ "../../tezos_parser/node_modules/bs58check/index.js");
+var bs58check = __webpack_require__(/*! bs58check */ "../node_modules/@ecadlabs/tezos-parser/node_modules/bs58check/index.js");
 function b58cencode(payload, prefix) {
     payload = Uint8Array.from(buffer__WEBPACK_IMPORTED_MODULE_0__["Buffer"].from(payload, 'hex'));
     var n = new Uint8Array(prefix.length + payload.length);
@@ -579,10 +579,10 @@ var ParameterSchema = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/base-x/src/index.js":
-/*!*****************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/base-x/src/index.js ***!
-  \*****************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/base-x/src/index.js":
+/*!*******************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/base-x/src/index.js ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -594,7 +594,7 @@ var ParameterSchema = /** @class */ (function () {
 // Distributed under the MIT software license, see the accompanying
 // file LICENSE or http://www.opensource.org/licenses/mit-license.php.
 // @ts-ignore
-var _Buffer = __webpack_require__(/*! safe-buffer */ "../../tezos_parser/node_modules/safe-buffer/index.js").Buffer
+var _Buffer = __webpack_require__(/*! safe-buffer */ "../node_modules/@ecadlabs/tezos-parser/node_modules/safe-buffer/index.js").Buffer
 function base (ALPHABET) {
   if (ALPHABET.length >= 255) { throw new TypeError('Alphabet too long') }
   var BASE_MAP = new Uint8Array(256)
@@ -711,14 +711,14 @@ module.exports = base
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/bs58/index.js":
-/*!***********************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/bs58/index.js ***!
-  \***********************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/bs58/index.js":
+/*!*************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/bs58/index.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var basex = __webpack_require__(/*! base-x */ "../../tezos_parser/node_modules/base-x/src/index.js")
+var basex = __webpack_require__(/*! base-x */ "../node_modules/@ecadlabs/tezos-parser/node_modules/base-x/src/index.js")
 var ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
 
 module.exports = basex(ALPHABET)
@@ -726,18 +726,18 @@ module.exports = basex(ALPHABET)
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/bs58check/base.js":
-/*!***************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/bs58check/base.js ***!
-  \***************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/bs58check/base.js":
+/*!*****************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/bs58check/base.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var base58 = __webpack_require__(/*! bs58 */ "../../tezos_parser/node_modules/bs58/index.js")
-var Buffer = __webpack_require__(/*! safe-buffer */ "../../tezos_parser/node_modules/safe-buffer/index.js").Buffer
+var base58 = __webpack_require__(/*! bs58 */ "../node_modules/@ecadlabs/tezos-parser/node_modules/bs58/index.js")
+var Buffer = __webpack_require__(/*! safe-buffer */ "../node_modules/@ecadlabs/tezos-parser/node_modules/safe-buffer/index.js").Buffer
 
 module.exports = function (checksumFn) {
   // Encode a buffer as a base58-check encoded string
@@ -788,18 +788,18 @@ module.exports = function (checksumFn) {
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/bs58check/index.js":
-/*!****************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/bs58check/index.js ***!
-  \****************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/bs58check/index.js":
+/*!******************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/bs58check/index.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createHash = __webpack_require__(/*! create-hash */ "../../tezos_parser/node_modules/create-hash/browser.js")
-var bs58checkBase = __webpack_require__(/*! ./base */ "../../tezos_parser/node_modules/bs58check/base.js")
+var createHash = __webpack_require__(/*! create-hash */ "../node_modules/@ecadlabs/tezos-parser/node_modules/create-hash/browser.js")
+var bs58checkBase = __webpack_require__(/*! ./base */ "../node_modules/@ecadlabs/tezos-parser/node_modules/bs58check/base.js")
 
 // SHA256(SHA256(buffer))
 function sha256x2 (buffer) {
@@ -812,17 +812,17 @@ module.exports = bs58checkBase(sha256x2)
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/cipher-base/index.js":
-/*!******************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/cipher-base/index.js ***!
-  \******************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/cipher-base/index.js":
+/*!********************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/cipher-base/index.js ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(/*! safe-buffer */ "../../tezos_parser/node_modules/safe-buffer/index.js").Buffer
+var Buffer = __webpack_require__(/*! safe-buffer */ "../node_modules/@ecadlabs/tezos-parser/node_modules/safe-buffer/index.js").Buffer
 var Transform = __webpack_require__(/*! stream */ "../node_modules/stream-browserify/index.js").Transform
 var StringDecoder = __webpack_require__(/*! string_decoder */ "../node_modules/string_decoder/lib/string_decoder.js").StringDecoder
-var inherits = __webpack_require__(/*! inherits */ "../../tezos_parser/node_modules/inherits/inherits_browser.js")
+var inherits = __webpack_require__(/*! inherits */ "../node_modules/@ecadlabs/tezos-parser/node_modules/inherits/inherits_browser.js")
 
 function CipherBase (hashMode) {
   Transform.call(this)
@@ -922,20 +922,20 @@ module.exports = CipherBase
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/create-hash/browser.js":
-/*!********************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/create-hash/browser.js ***!
-  \********************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/create-hash/browser.js":
+/*!**********************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/create-hash/browser.js ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var inherits = __webpack_require__(/*! inherits */ "../../tezos_parser/node_modules/inherits/inherits_browser.js")
-var MD5 = __webpack_require__(/*! md5.js */ "../../tezos_parser/node_modules/md5.js/index.js")
-var RIPEMD160 = __webpack_require__(/*! ripemd160 */ "../../tezos_parser/node_modules/ripemd160/index.js")
-var sha = __webpack_require__(/*! sha.js */ "../../tezos_parser/node_modules/sha.js/index.js")
-var Base = __webpack_require__(/*! cipher-base */ "../../tezos_parser/node_modules/cipher-base/index.js")
+var inherits = __webpack_require__(/*! inherits */ "../node_modules/@ecadlabs/tezos-parser/node_modules/inherits/inherits_browser.js")
+var MD5 = __webpack_require__(/*! md5.js */ "../node_modules/@ecadlabs/tezos-parser/node_modules/md5.js/index.js")
+var RIPEMD160 = __webpack_require__(/*! ripemd160 */ "../node_modules/@ecadlabs/tezos-parser/node_modules/ripemd160/index.js")
+var sha = __webpack_require__(/*! sha.js */ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/index.js")
+var Base = __webpack_require__(/*! cipher-base */ "../node_modules/@ecadlabs/tezos-parser/node_modules/cipher-base/index.js")
 
 function Hash (hash) {
   Base.call(this, 'digest')
@@ -964,18 +964,18 @@ module.exports = function createHash (alg) {
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/hash-base/index.js":
-/*!****************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/hash-base/index.js ***!
-  \****************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/hash-base/index.js":
+/*!******************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/hash-base/index.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var Buffer = __webpack_require__(/*! safe-buffer */ "../../tezos_parser/node_modules/safe-buffer/index.js").Buffer
+var Buffer = __webpack_require__(/*! safe-buffer */ "../node_modules/@ecadlabs/tezos-parser/node_modules/safe-buffer/index.js").Buffer
 var Transform = __webpack_require__(/*! stream */ "../node_modules/stream-browserify/index.js").Transform
-var inherits = __webpack_require__(/*! inherits */ "../../tezos_parser/node_modules/inherits/inherits_browser.js")
+var inherits = __webpack_require__(/*! inherits */ "../node_modules/@ecadlabs/tezos-parser/node_modules/inherits/inherits_browser.js")
 
 function throwIfNotStringOrBuffer (val, prefix) {
   if (!Buffer.isBuffer(val) && typeof val !== 'string') {
@@ -1071,10 +1071,10 @@ module.exports = HashBase
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/inherits/inherits_browser.js":
-/*!**************************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/inherits/inherits_browser.js ***!
-  \**************************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/inherits/inherits_browser.js":
+/*!****************************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/inherits/inherits_browser.js ***!
+  \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -1109,18 +1109,18 @@ if (typeof Object.create === 'function') {
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/md5.js/index.js":
-/*!*************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/md5.js/index.js ***!
-  \*************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/md5.js/index.js":
+/*!***************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/md5.js/index.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var inherits = __webpack_require__(/*! inherits */ "../../tezos_parser/node_modules/inherits/inherits_browser.js")
-var HashBase = __webpack_require__(/*! hash-base */ "../../tezos_parser/node_modules/hash-base/index.js")
-var Buffer = __webpack_require__(/*! safe-buffer */ "../../tezos_parser/node_modules/safe-buffer/index.js").Buffer
+var inherits = __webpack_require__(/*! inherits */ "../node_modules/@ecadlabs/tezos-parser/node_modules/inherits/inherits_browser.js")
+var HashBase = __webpack_require__(/*! hash-base */ "../node_modules/@ecadlabs/tezos-parser/node_modules/hash-base/index.js")
+var Buffer = __webpack_require__(/*! safe-buffer */ "../node_modules/@ecadlabs/tezos-parser/node_modules/safe-buffer/index.js").Buffer
 
 var ARRAY16 = new Array(16)
 
@@ -1267,18 +1267,18 @@ module.exports = MD5
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/ripemd160/index.js":
-/*!****************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/ripemd160/index.js ***!
-  \****************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/ripemd160/index.js":
+/*!******************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/ripemd160/index.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Buffer = __webpack_require__(/*! buffer */ "../node_modules/node-libs-browser/node_modules/buffer/index.js").Buffer
-var inherits = __webpack_require__(/*! inherits */ "../../tezos_parser/node_modules/inherits/inherits_browser.js")
-var HashBase = __webpack_require__(/*! hash-base */ "../../tezos_parser/node_modules/hash-base/index.js")
+var inherits = __webpack_require__(/*! inherits */ "../node_modules/@ecadlabs/tezos-parser/node_modules/inherits/inherits_browser.js")
+var HashBase = __webpack_require__(/*! hash-base */ "../node_modules/@ecadlabs/tezos-parser/node_modules/hash-base/index.js")
 
 var ARRAY16 = new Array(16)
 
@@ -1442,10 +1442,10 @@ module.exports = RIPEMD160
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/safe-buffer/index.js":
-/*!******************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/safe-buffer/index.js ***!
-  \******************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/safe-buffer/index.js":
+/*!********************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/safe-buffer/index.js ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1517,14 +1517,14 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/sha.js/hash.js":
-/*!************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/sha.js/hash.js ***!
-  \************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/hash.js":
+/*!**************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/hash.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(/*! safe-buffer */ "../../tezos_parser/node_modules/safe-buffer/index.js").Buffer
+var Buffer = __webpack_require__(/*! safe-buffer */ "../node_modules/@ecadlabs/tezos-parser/node_modules/safe-buffer/index.js").Buffer
 
 // prototype class for hash functions
 function Hash (blockSize, finalSize) {
@@ -1609,10 +1609,10 @@ module.exports = Hash
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/sha.js/index.js":
-/*!*************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/sha.js/index.js ***!
-  \*************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/index.js":
+/*!***************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/index.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1625,20 +1625,20 @@ var exports = module.exports = function SHA (algorithm) {
   return new Algorithm()
 }
 
-exports.sha = __webpack_require__(/*! ./sha */ "../../tezos_parser/node_modules/sha.js/sha.js")
-exports.sha1 = __webpack_require__(/*! ./sha1 */ "../../tezos_parser/node_modules/sha.js/sha1.js")
-exports.sha224 = __webpack_require__(/*! ./sha224 */ "../../tezos_parser/node_modules/sha.js/sha224.js")
-exports.sha256 = __webpack_require__(/*! ./sha256 */ "../../tezos_parser/node_modules/sha.js/sha256.js")
-exports.sha384 = __webpack_require__(/*! ./sha384 */ "../../tezos_parser/node_modules/sha.js/sha384.js")
-exports.sha512 = __webpack_require__(/*! ./sha512 */ "../../tezos_parser/node_modules/sha.js/sha512.js")
+exports.sha = __webpack_require__(/*! ./sha */ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha.js")
+exports.sha1 = __webpack_require__(/*! ./sha1 */ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha1.js")
+exports.sha224 = __webpack_require__(/*! ./sha224 */ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha224.js")
+exports.sha256 = __webpack_require__(/*! ./sha256 */ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha256.js")
+exports.sha384 = __webpack_require__(/*! ./sha384 */ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha384.js")
+exports.sha512 = __webpack_require__(/*! ./sha512 */ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha512.js")
 
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/sha.js/sha.js":
-/*!***********************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/sha.js/sha.js ***!
-  \***********************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha.js":
+/*!*************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1650,9 +1650,9 @@ exports.sha512 = __webpack_require__(/*! ./sha512 */ "../../tezos_parser/node_mo
  * operation was added.
  */
 
-var inherits = __webpack_require__(/*! inherits */ "../../tezos_parser/node_modules/inherits/inherits_browser.js")
-var Hash = __webpack_require__(/*! ./hash */ "../../tezos_parser/node_modules/sha.js/hash.js")
-var Buffer = __webpack_require__(/*! safe-buffer */ "../../tezos_parser/node_modules/safe-buffer/index.js").Buffer
+var inherits = __webpack_require__(/*! inherits */ "../node_modules/@ecadlabs/tezos-parser/node_modules/inherits/inherits_browser.js")
+var Hash = __webpack_require__(/*! ./hash */ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/hash.js")
+var Buffer = __webpack_require__(/*! safe-buffer */ "../node_modules/@ecadlabs/tezos-parser/node_modules/safe-buffer/index.js").Buffer
 
 var K = [
   0x5a827999, 0x6ed9eba1, 0x8f1bbcdc | 0, 0xca62c1d6 | 0
@@ -1740,10 +1740,10 @@ module.exports = Sha
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/sha.js/sha1.js":
-/*!************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/sha.js/sha1.js ***!
-  \************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha1.js":
+/*!**************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha1.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1756,9 +1756,9 @@ module.exports = Sha
  * See http://pajhome.org.uk/crypt/md5 for details.
  */
 
-var inherits = __webpack_require__(/*! inherits */ "../../tezos_parser/node_modules/inherits/inherits_browser.js")
-var Hash = __webpack_require__(/*! ./hash */ "../../tezos_parser/node_modules/sha.js/hash.js")
-var Buffer = __webpack_require__(/*! safe-buffer */ "../../tezos_parser/node_modules/safe-buffer/index.js").Buffer
+var inherits = __webpack_require__(/*! inherits */ "../node_modules/@ecadlabs/tezos-parser/node_modules/inherits/inherits_browser.js")
+var Hash = __webpack_require__(/*! ./hash */ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/hash.js")
+var Buffer = __webpack_require__(/*! safe-buffer */ "../node_modules/@ecadlabs/tezos-parser/node_modules/safe-buffer/index.js").Buffer
 
 var K = [
   0x5a827999, 0x6ed9eba1, 0x8f1bbcdc | 0, 0xca62c1d6 | 0
@@ -1850,10 +1850,10 @@ module.exports = Sha1
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/sha.js/sha224.js":
-/*!**************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/sha.js/sha224.js ***!
-  \**************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha224.js":
+/*!****************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha224.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1865,10 +1865,10 @@ module.exports = Sha1
  *
  */
 
-var inherits = __webpack_require__(/*! inherits */ "../../tezos_parser/node_modules/inherits/inherits_browser.js")
-var Sha256 = __webpack_require__(/*! ./sha256 */ "../../tezos_parser/node_modules/sha.js/sha256.js")
-var Hash = __webpack_require__(/*! ./hash */ "../../tezos_parser/node_modules/sha.js/hash.js")
-var Buffer = __webpack_require__(/*! safe-buffer */ "../../tezos_parser/node_modules/safe-buffer/index.js").Buffer
+var inherits = __webpack_require__(/*! inherits */ "../node_modules/@ecadlabs/tezos-parser/node_modules/inherits/inherits_browser.js")
+var Sha256 = __webpack_require__(/*! ./sha256 */ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha256.js")
+var Hash = __webpack_require__(/*! ./hash */ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/hash.js")
+var Buffer = __webpack_require__(/*! safe-buffer */ "../node_modules/@ecadlabs/tezos-parser/node_modules/safe-buffer/index.js").Buffer
 
 var W = new Array(64)
 
@@ -1914,10 +1914,10 @@ module.exports = Sha224
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/sha.js/sha256.js":
-/*!**************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/sha.js/sha256.js ***!
-  \**************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha256.js":
+/*!****************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha256.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1929,9 +1929,9 @@ module.exports = Sha224
  *
  */
 
-var inherits = __webpack_require__(/*! inherits */ "../../tezos_parser/node_modules/inherits/inherits_browser.js")
-var Hash = __webpack_require__(/*! ./hash */ "../../tezos_parser/node_modules/sha.js/hash.js")
-var Buffer = __webpack_require__(/*! safe-buffer */ "../../tezos_parser/node_modules/safe-buffer/index.js").Buffer
+var inherits = __webpack_require__(/*! inherits */ "../node_modules/@ecadlabs/tezos-parser/node_modules/inherits/inherits_browser.js")
+var Hash = __webpack_require__(/*! ./hash */ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/hash.js")
+var Buffer = __webpack_require__(/*! safe-buffer */ "../node_modules/@ecadlabs/tezos-parser/node_modules/safe-buffer/index.js").Buffer
 
 var K = [
   0x428A2F98, 0x71374491, 0xB5C0FBCF, 0xE9B5DBA5,
@@ -2060,17 +2060,17 @@ module.exports = Sha256
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/sha.js/sha384.js":
-/*!**************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/sha.js/sha384.js ***!
-  \**************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha384.js":
+/*!****************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha384.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var inherits = __webpack_require__(/*! inherits */ "../../tezos_parser/node_modules/inherits/inherits_browser.js")
-var SHA512 = __webpack_require__(/*! ./sha512 */ "../../tezos_parser/node_modules/sha.js/sha512.js")
-var Hash = __webpack_require__(/*! ./hash */ "../../tezos_parser/node_modules/sha.js/hash.js")
-var Buffer = __webpack_require__(/*! safe-buffer */ "../../tezos_parser/node_modules/safe-buffer/index.js").Buffer
+var inherits = __webpack_require__(/*! inherits */ "../node_modules/@ecadlabs/tezos-parser/node_modules/inherits/inherits_browser.js")
+var SHA512 = __webpack_require__(/*! ./sha512 */ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha512.js")
+var Hash = __webpack_require__(/*! ./hash */ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/hash.js")
+var Buffer = __webpack_require__(/*! safe-buffer */ "../node_modules/@ecadlabs/tezos-parser/node_modules/safe-buffer/index.js").Buffer
 
 var W = new Array(160)
 
@@ -2128,16 +2128,16 @@ module.exports = Sha384
 
 /***/ }),
 
-/***/ "../../tezos_parser/node_modules/sha.js/sha512.js":
-/*!**************************************************************************!*\
-  !*** /home/simon/Source/Ecad/tezos_parser/node_modules/sha.js/sha512.js ***!
-  \**************************************************************************/
+/***/ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha512.js":
+/*!****************************************************************************!*\
+  !*** ../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/sha512.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var inherits = __webpack_require__(/*! inherits */ "../../tezos_parser/node_modules/inherits/inherits_browser.js")
-var Hash = __webpack_require__(/*! ./hash */ "../../tezos_parser/node_modules/sha.js/hash.js")
-var Buffer = __webpack_require__(/*! safe-buffer */ "../../tezos_parser/node_modules/safe-buffer/index.js").Buffer
+var inherits = __webpack_require__(/*! inherits */ "../node_modules/@ecadlabs/tezos-parser/node_modules/inherits/inherits_browser.js")
+var Hash = __webpack_require__(/*! ./hash */ "../node_modules/@ecadlabs/tezos-parser/node_modules/sha.js/hash.js")
+var Buffer = __webpack_require__(/*! safe-buffer */ "../node_modules/@ecadlabs/tezos-parser/node_modules/safe-buffer/index.js").Buffer
 
 var K = [
   0x428a2f98, 0xd728ae22, 0x71374491, 0x23ef65cd,
@@ -25803,6 +25803,279 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./data/cryptocompare.ts":
+/*!*******************************!*\
+  !*** ./data/cryptocompare.ts ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var KrakenAPI = /** @class */ (function () {
+    function KrakenAPI(backendSrv) {
+        this.backendSrv = backendSrv;
+    }
+    KrakenAPI.prototype.getTickerPrice = function (sym, range) {
+        var diff = range.to.unix() - range.from.unix();
+        var numOfDataPoint = Math.ceil(diff / 3600);
+        return this.doRequest({
+            url: "https://min-api.cryptocompare.com/data/histohour?fsym=XTZ&tsym=" + sym + "&limit=" + numOfDataPoint + "&toTs=" + range.to.unix()
+        }).then(function (_a) {
+            var data = _a.data;
+            return data;
+        });
+    };
+    KrakenAPI.prototype.doRequest = function (options) {
+        return this.backendSrv.datasourceRequest(options);
+    };
+    return KrakenAPI;
+}());
+exports.KrakenAPI = KrakenAPI;
+
+
+/***/ }),
+
+/***/ "./data/rpc.ts":
+/*!*********************!*\
+  !*** ./data/rpc.ts ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var RPCClient = /** @class */ (function () {
+    function RPCClient(baseUrl, backend) {
+        this.baseUrl = baseUrl;
+        this.backend = backend;
+        this.rpcHeadEndpoint = '/chains/main/blocks/';
+        this.rpcBalanceEndpoint = '/chains/main/blocks/head/context/contracts/%s/balance';
+        this.rpcContractEndpoint = function (level, addr) {
+            return "/chains/main/blocks/" + level + "/context/contracts/" + addr;
+        };
+        this.rpcContextEndpoint = '/chains/main/blocks/head/context/constants';
+        this.rpcBakingRightsEndpoint = '/chains/main/blocks/head/helpers/baking_rights';
+        this.rpcOpEndpoint = function (block, op) {
+            return "/chains/main/blocks/" + block + "/operations/3";
+        };
+        this.rpcBigMapGet = function (key, pkh, level) {
+            return "/chains/main/blocks/" + level + "/context/contracts/" + pkh + "/big_map_get?key=" + key;
+        };
+        this.cache = new Map();
+    }
+    RPCClient.prototype.contract = function (pkh, level) {
+        if (level === void 0) { level = 'head'; }
+        return this.doRequest({
+            url: this.baseUrl + this.rpcContractEndpoint(level, pkh),
+            method: 'GET'
+        }).then(function (_a) {
+            var data = _a.data;
+            return data;
+        });
+    };
+    RPCClient.prototype.bigMapGet = function (key, pkh, level) {
+        if (level === void 0) { level = 'head'; }
+        return this.doRequest({
+            url: this.baseUrl + this.rpcBigMapGet(key.key.bytes, pkh, level),
+            method: 'POST',
+            data: key,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(function (_a) {
+            var data = _a.data;
+            return data;
+        });
+    };
+    RPCClient.prototype.operation = function (op, level) {
+        if (level === void 0) { level = 'head'; }
+        return this.doRequest({
+            url: this.baseUrl + this.rpcOpEndpoint(level, op),
+            method: 'GET'
+        }).then(function (_a) {
+            var data = _a.data;
+            return data;
+        });
+    };
+    RPCClient.prototype.balance = function (pkh) {
+        return this.doRequest({
+            url: this.baseUrl + this.rpcBalanceEndpoint.replace('%s', pkh),
+            method: 'GET'
+        }).then(function (_a) {
+            var data = _a.data;
+            return data;
+        });
+    };
+    RPCClient.prototype.head = function (level) {
+        if (level === void 0) { level = 'head'; }
+        return this.doRequest({
+            url: this.baseUrl + this.rpcHeadEndpoint + level,
+            method: 'GET'
+        }).then(function (_a) {
+            var data = _a.data;
+            return data;
+        });
+    };
+    RPCClient.prototype.backingRight = function () {
+        return this.doRequest({
+            url: this.baseUrl + this.rpcBakingRightsEndpoint,
+            method: 'GET'
+        }).then(function (_a) {
+            var data = _a.data;
+            return data;
+        });
+    };
+    RPCClient.prototype.context = function () {
+        return this.doRequest({
+            url: this.baseUrl + this.rpcContextEndpoint,
+            method: 'GET'
+        }).then(function (_a) {
+            var data = _a.data;
+            return data;
+        });
+    };
+    RPCClient.prototype.hasOption = function (options) {
+        var lastOption = this.cache.get(options);
+        var now = new Date();
+        return (lastOption && lastOption.timestamp && now - lastOption.timestamp < 5000 // Cache for 5 seconds
+        );
+    };
+    RPCClient.prototype.doRequest = function (options) {
+        if (!this.hasOption(options.url)) {
+            this.cache.set(options.url, {
+                result: this.backend.datasourceRequest(options),
+                timestamp: new Date()
+            });
+        }
+        return this.cache.get(options.url).result;
+    };
+    return RPCClient;
+}());
+exports.RPCClient = RPCClient;
+
+
+/***/ }),
+
+/***/ "./data/tzscan.ts":
+/*!************************!*\
+  !*** ./data/tzscan.ts ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var Tzscan = /** @class */ (function () {
+    function Tzscan(baseUrl) {
+        this.baseUrl = baseUrl;
+        this.cache = new Map();
+    }
+    Tzscan.prototype.hasUrl = function (url) {
+        var lastOption = this.cache.get(url);
+        var now = new Date();
+        return (lastOption && lastOption.timestamp && now - lastOption.timestamp < 5000 // Cache for 5 seconds
+        );
+    };
+    Tzscan.prototype.head = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.doRequest(this.baseUrl + "/v1/head")];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    Tzscan.prototype.transactions = function (address) {
+        return __awaiter(this, void 0, void 0, function () {
+            var lastResult, txs;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        lastResult = null;
+                        txs = [];
+                        _a.label = 1;
+                    case 1:
+                        if (!(!lastResult || lastResult.length == 10)) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this.doRequest(this.baseUrl + "/v1/operations/" + address + "?type=Transaction&number=10&p=0")];
+                    case 2:
+                        lastResult = (_a.sent());
+                        txs.push.apply(txs, lastResult);
+                        return [3 /*break*/, 1];
+                    case 3: return [2 /*return*/, txs];
+                }
+            });
+        });
+    };
+    Tzscan.prototype.doRequest = function (url) {
+        return __awaiter(this, void 0, void 0, function () {
+            var resp, res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!!this.hasUrl(url)) return [3 /*break*/, 3];
+                        return [4 /*yield*/, fetch(url)];
+                    case 1:
+                        resp = _a.sent();
+                        return [4 /*yield*/, resp.json()];
+                    case 2:
+                        res = _a.sent();
+                        this.cache.set(url, {
+                            result: res,
+                            timestamp: new Date()
+                        });
+                        _a.label = 3;
+                    case 3: return [2 /*return*/, this.cache.get(url).result];
+                }
+            });
+        });
+    };
+    return Tzscan;
+}());
+exports.Tzscan = Tzscan;
+
+
+/***/ }),
+
 /***/ "./datasource.ts":
 /*!***********************!*\
   !*** ./datasource.ts ***!
@@ -25824,11 +26097,13 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var rpc_1 = __webpack_require__(/*! ./rpc */ "./rpc.ts");
+var rpc_1 = __webpack_require__(/*! ./data/rpc */ "./data/rpc.ts");
 var account_1 = __webpack_require__(/*! ./queries/account */ "./queries/account.ts");
 var block_1 = __webpack_require__(/*! ./queries/block */ "./queries/block.ts");
 var contract_1 = __webpack_require__(/*! ./queries/contract */ "./queries/contract.ts");
-var tzscan_1 = __webpack_require__(/*! ./tzscan */ "./tzscan.ts");
+var tzscan_1 = __webpack_require__(/*! ./data/tzscan */ "./data/tzscan.ts");
+var misc_1 = __webpack_require__(/*! ./queries/misc */ "./queries/misc.ts");
+var cryptocompare_1 = __webpack_require__(/*! ./data/cryptocompare */ "./data/cryptocompare.ts");
 var GenericDatasource = /** @class */ (function () {
     function GenericDatasource(instanceSettings, backendSrv, templateSrv) {
         this.templateSrv = templateSrv;
@@ -25838,6 +26113,7 @@ var GenericDatasource = /** @class */ (function () {
         this.backendSrv = backendSrv;
         this.rpc = new rpc_1.RPCClient(this.url, this.backendSrv);
         this.tzscan = new tzscan_1.Tzscan(instanceSettings.jsonData.tzscanURL);
+        this.api = new cryptocompare_1.KrakenAPI(this.backendSrv);
     }
     GenericDatasource.prototype.prepareQueryTarget = function (target, options) {
         // Replace grafana variables
@@ -25865,6 +26141,11 @@ var GenericDatasource = /** @class */ (function () {
                     var blockQuery = block_1.blockQueries.find(function (x) { return x.query_type == subQueryType; });
                     if (blockQuery) {
                         returnedQuery = new blockQuery().query(_this.rpc);
+                    }
+                case 'misc':
+                    var miscQuery = misc_1.miscQueries.find(function (x) { return x.query_type == subQueryType; });
+                    if (miscQuery) {
+                        returnedQuery = new miscQuery().query(_this.api, options.range);
                     }
             }
             if (!returnedQuery) {
@@ -26287,7 +26568,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var response_parser_1 = __webpack_require__(/*! ../response_parser */ "./response_parser.ts");
 var _ = __webpack_require__(/*! lodash */ "../node_modules/lodash/lodash.js");
-var tezos_parser_1 = __webpack_require__(/*! @ecadlabs/tezos-parser */ "../../tezos_parser/dist/parser.es5.js");
+var tezos_parser_1 = __webpack_require__(/*! @ecadlabs/tezos-parser */ "../node_modules/@ecadlabs/tezos-parser/dist/parser.es5.js");
 function getTimestamp(tx) {
     return new Date(tx.type.operations[0].timestamp).getTime();
 }
@@ -26545,6 +26826,104 @@ exports.contractQueries = [
 
 /***/ }),
 
+/***/ "./queries/misc.ts":
+/*!*************************!*\
+  !*** ./queries/misc.ts ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var BTCTokenPriceQuery = /** @class */ (function () {
+    function BTCTokenPriceQuery() {
+    }
+    BTCTokenPriceQuery.prototype.query = function (api, range) {
+        return __awaiter(this, void 0, void 0, function () {
+            var result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, api.getTickerPrice('BTC', range)];
+                    case 1:
+                        result = _a.sent();
+                        return [2 /*return*/, {
+                                datapoints: result.Data.map(function (x) {
+                                    return [x.close, x.time * 1000];
+                                })
+                            }];
+                }
+            });
+        });
+    };
+    BTCTokenPriceQuery.query_type = 'btc_token_price';
+    BTCTokenPriceQuery.display_name = 'XTZ/BTC Price';
+    return BTCTokenPriceQuery;
+}());
+var USDTokenPriceQuery = /** @class */ (function () {
+    function USDTokenPriceQuery() {
+    }
+    USDTokenPriceQuery.prototype.query = function (api, range) {
+        return __awaiter(this, void 0, void 0, function () {
+            var result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, api.getTickerPrice('USD', range)];
+                    case 1:
+                        result = _a.sent();
+                        return [2 /*return*/, {
+                                datapoints: result.Data.map(function (x) {
+                                    return [x.close, x.time * 1000];
+                                })
+                            }];
+                }
+            });
+        });
+    };
+    USDTokenPriceQuery.query_type = 'usd_token_price';
+    USDTokenPriceQuery.display_name = 'XTZ/USD Price';
+    return USDTokenPriceQuery;
+}());
+exports.miscQueries = [BTCTokenPriceQuery, USDTokenPriceQuery];
+
+
+/***/ }),
+
 /***/ "./query_ctrl.ts":
 /*!***********************!*\
   !*** ./query_ctrl.ts ***!
@@ -26572,6 +26951,7 @@ var sdk_1 = __webpack_require__(/*! grafana/app/plugins/sdk */ "grafana/app/plug
 var account_1 = __webpack_require__(/*! ./queries/account */ "./queries/account.ts");
 var block_1 = __webpack_require__(/*! ./queries/block */ "./queries/block.ts");
 var contract_1 = __webpack_require__(/*! ./queries/contract */ "./queries/contract.ts");
+var misc_1 = __webpack_require__(/*! ./queries/misc */ "./queries/misc.ts");
 var TezosQueryCtrl = /** @class */ (function (_super) {
     __extends(TezosQueryCtrl, _super);
     /** @ngInject **/
@@ -26598,10 +26978,18 @@ var TezosQueryCtrl = /** @class */ (function (_super) {
                 text: display_name
             });
         });
+        _this.miscSubQueryTypes = misc_1.miscQueries.map(function (_a) {
+            var display_name = _a.display_name, query_type = _a.query_type;
+            return ({
+                value: query_type,
+                text: display_name
+            });
+        });
         _this.queryTypes = [
             { value: 'block', text: 'Block', defaults: block_1.blockQueries },
             { value: 'account', text: 'Account', defaults: account_1.queries },
-            { value: 'contract', text: 'Contract', defaults: contract_1.contractQueries }
+            { value: 'contract', text: 'Contract', defaults: contract_1.contractQueries },
+            { value: 'misc', text: 'Misc', defaults: misc_1.miscQueries }
         ];
         _this.onSave();
         return _this;
@@ -26623,6 +27011,8 @@ var TezosQueryCtrl = /** @class */ (function (_super) {
                     return this.accountSubQueryTypes;
                 case 'contract':
                     return this.contractSubQueryTypes;
+                case 'misc':
+                    return this.miscSubQueryTypes;
                 default:
                     return this.blockSubQueryTypes;
             }
@@ -26670,245 +27060,6 @@ function parseString(data) {
     return { datapoints: [[data, Date.now()]] };
 }
 exports.parseString = parseString;
-
-
-/***/ }),
-
-/***/ "./rpc.ts":
-/*!****************!*\
-  !*** ./rpc.ts ***!
-  \****************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var RPCClient = /** @class */ (function () {
-    function RPCClient(baseUrl, backend) {
-        this.baseUrl = baseUrl;
-        this.backend = backend;
-        this.rpcHeadEndpoint = '/chains/main/blocks/';
-        this.rpcBalanceEndpoint = '/chains/main/blocks/head/context/contracts/%s/balance';
-        this.rpcContractEndpoint = function (level, addr) {
-            return "/chains/main/blocks/" + level + "/context/contracts/" + addr;
-        };
-        this.rpcContextEndpoint = '/chains/main/blocks/head/context/constants';
-        this.rpcBakingRightsEndpoint = '/chains/main/blocks/head/helpers/baking_rights';
-        this.rpcOpEndpoint = function (block, op) {
-            return "/chains/main/blocks/" + block + "/operations/3";
-        };
-        this.rpcBigMapGet = function (key, pkh, level) {
-            return "/chains/main/blocks/" + level + "/context/contracts/" + pkh + "/big_map_get?key=" + key;
-        };
-        this.cache = new Map();
-    }
-    RPCClient.prototype.contract = function (pkh, level) {
-        if (level === void 0) { level = 'head'; }
-        return this.doRequest({
-            url: this.baseUrl + this.rpcContractEndpoint(level, pkh),
-            method: 'GET'
-        }).then(function (_a) {
-            var data = _a.data;
-            return data;
-        });
-    };
-    RPCClient.prototype.bigMapGet = function (key, pkh, level) {
-        if (level === void 0) { level = 'head'; }
-        return this.doRequest({
-            url: this.baseUrl + this.rpcBigMapGet(key.key.bytes, pkh, level),
-            method: 'POST',
-            data: key,
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(function (_a) {
-            var data = _a.data;
-            return data;
-        });
-    };
-    RPCClient.prototype.operation = function (op, level) {
-        if (level === void 0) { level = 'head'; }
-        return this.doRequest({
-            url: this.baseUrl + this.rpcOpEndpoint(level, op),
-            method: 'GET'
-        }).then(function (_a) {
-            var data = _a.data;
-            return data;
-        });
-    };
-    RPCClient.prototype.balance = function (pkh) {
-        return this.doRequest({
-            url: this.baseUrl + this.rpcBalanceEndpoint.replace('%s', pkh),
-            method: 'GET'
-        }).then(function (_a) {
-            var data = _a.data;
-            return data;
-        });
-    };
-    RPCClient.prototype.head = function (level) {
-        if (level === void 0) { level = 'head'; }
-        return this.doRequest({
-            url: this.baseUrl + this.rpcHeadEndpoint + level,
-            method: 'GET'
-        }).then(function (_a) {
-            var data = _a.data;
-            return data;
-        });
-    };
-    RPCClient.prototype.backingRight = function () {
-        return this.doRequest({
-            url: this.baseUrl + this.rpcBakingRightsEndpoint,
-            method: 'GET'
-        }).then(function (_a) {
-            var data = _a.data;
-            return data;
-        });
-    };
-    RPCClient.prototype.context = function () {
-        return this.doRequest({
-            url: this.baseUrl + this.rpcContextEndpoint,
-            method: 'GET'
-        }).then(function (_a) {
-            var data = _a.data;
-            return data;
-        });
-    };
-    RPCClient.prototype.hasOption = function (options) {
-        var lastOption = this.cache.get(options);
-        var now = new Date();
-        return (lastOption && lastOption.timestamp && now - lastOption.timestamp < 5000 // Cache for 5 seconds
-        );
-    };
-    RPCClient.prototype.doRequest = function (options) {
-        if (!this.hasOption(options.url)) {
-            this.cache.set(options.url, {
-                result: this.backend.datasourceRequest(options),
-                timestamp: new Date()
-            });
-        }
-        return this.cache.get(options.url).result;
-    };
-    return RPCClient;
-}());
-exports.RPCClient = RPCClient;
-
-
-/***/ }),
-
-/***/ "./tzscan.ts":
-/*!*******************!*\
-  !*** ./tzscan.ts ***!
-  \*******************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var Tzscan = /** @class */ (function () {
-    function Tzscan(baseUrl) {
-        this.baseUrl = baseUrl;
-        this.cache = new Map();
-    }
-    Tzscan.prototype.hasUrl = function (url) {
-        var lastOption = this.cache.get(url);
-        var now = new Date();
-        return (lastOption && lastOption.timestamp && now - lastOption.timestamp < 5000 // Cache for 5 seconds
-        );
-    };
-    Tzscan.prototype.head = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.doRequest(this.baseUrl + "/v1/head")];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    Tzscan.prototype.transactions = function (address) {
-        return __awaiter(this, void 0, void 0, function () {
-            var lastResult, txs;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        lastResult = null;
-                        txs = [];
-                        _a.label = 1;
-                    case 1:
-                        if (!(!lastResult || lastResult.length == 10)) return [3 /*break*/, 3];
-                        return [4 /*yield*/, this.doRequest(this.baseUrl + "/v1/operations/" + address + "?type=Transaction&number=10&p=0")];
-                    case 2:
-                        lastResult = (_a.sent());
-                        txs.push.apply(txs, lastResult);
-                        return [3 /*break*/, 1];
-                    case 3: return [2 /*return*/, txs];
-                }
-            });
-        });
-    };
-    Tzscan.prototype.doRequest = function (url) {
-        return __awaiter(this, void 0, void 0, function () {
-            var resp, res;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (!!this.hasUrl(url)) return [3 /*break*/, 3];
-                        return [4 /*yield*/, fetch(url)];
-                    case 1:
-                        resp = _a.sent();
-                        return [4 /*yield*/, resp.json()];
-                    case 2:
-                        res = _a.sent();
-                        this.cache.set(url, {
-                            result: res,
-                            timestamp: new Date()
-                        });
-                        _a.label = 3;
-                    case 3: return [2 /*return*/, this.cache.get(url).result];
-                }
-            });
-        });
-    };
-    return Tzscan;
-}());
-exports.Tzscan = Tzscan;
 
 
 /***/ }),
