@@ -1,13 +1,10 @@
-import { KrakenAPI } from '../data/cryptocompare';
+import { OHLCApi } from '../data/ohlc';
 import moment from 'moment';
 class BTCTokenPriceQuery {
   static query_type = 'btc_token_price';
   static display_name = 'XTZ/BTC Price';
 
-  async query(
-    api: KrakenAPI,
-    range: { from: moment.Moment; to: moment.Moment }
-  ) {
+  async query(api: OHLCApi, range: { from: moment.Moment; to: moment.Moment }) {
     const result = await api.getTickerPrice('BTC', range);
     return {
       datapoints: result.Data.map(x => {
@@ -21,10 +18,7 @@ class USDTokenPriceQuery {
   static query_type = 'usd_token_price';
   static display_name = 'XTZ/USD Price';
 
-  async query(
-    api: KrakenAPI,
-    range: { from: moment.Moment; to: moment.Moment }
-  ) {
+  async query(api: OHLCApi, range: { from: moment.Moment; to: moment.Moment }) {
     const result = await api.getTickerPrice('USD', range);
     return {
       datapoints: result.Data.map(x => {

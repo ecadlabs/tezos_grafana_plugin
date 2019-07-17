@@ -4,7 +4,7 @@ import { blockQueries } from './queries/block';
 import { contractQueries } from './queries/contract';
 import { Tzscan } from './data/tzscan';
 import { miscQueries } from './queries/misc';
-import { KrakenAPI } from './data/cryptocompare';
+import { OHLCApi } from './data/ohlc';
 
 interface QueryResponse {
   data: { datapoints: [(number | string)[]]; target: string }[];
@@ -17,7 +17,7 @@ export class GenericDatasource {
   backendSrv: any;
   rpc: RPCClient;
   tzscan: Tzscan;
-  api: KrakenAPI;
+  api: OHLCApi;
 
   constructor(instanceSettings, backendSrv, private templateSrv) {
     this.type = instanceSettings.type;
@@ -26,7 +26,7 @@ export class GenericDatasource {
     this.backendSrv = backendSrv;
     this.rpc = new RPCClient(this.url, this.backendSrv);
     this.tzscan = new Tzscan(instanceSettings.jsonData.tzscanURL);
-    this.api = new KrakenAPI(this.backendSrv);
+    this.api = new OHLCApi(this.backendSrv);
   }
 
   prepareQueryTarget(target, options) {

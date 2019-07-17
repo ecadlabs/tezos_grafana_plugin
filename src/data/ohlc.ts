@@ -29,7 +29,7 @@ interface Datum {
   volumeto: number;
 }
 
-export class KrakenAPI {
+export class OHLCApi {
   constructor(private backendSrv) {}
 
   getTickerPrice(
