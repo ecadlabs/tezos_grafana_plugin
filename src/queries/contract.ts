@@ -1,10 +1,9 @@
-import { parseStorage } from '../storage_parser';
 import { RPCClient } from '../rpc';
 import { parseString } from '../response_parser';
 import * as _ from 'lodash';
 import moment from 'moment';
 import { Tzscan } from '../tzscan';
-import { Schema, ParameterSchema } from '../parser';
+import { Schema, ParameterSchema } from '@ecadlabs/tezos-parser';
 
 interface Transaction {
   hash: string;
@@ -270,7 +269,14 @@ class ContractSnapshotStorageQuery {
   query(rpc: RPCClient, tzscan: Tzscan, address: string, idx: string) {
     return rpc
       .contract(address)
-      .then(contract => extractProp(String(idx), parseStorage(contract)))
+      .then(async contract => {
+        const sch = (await rpc.contract(address)) as any;
+
+        const schema = new Schema(
+          (sch.script.code.find(x => x.prim === 'storage') as any).args[0]
+        );
+        return extractProp(String(idx), schema.Execute(sch.script.storage));
+      })
       .then(parseString);
   }
 }
