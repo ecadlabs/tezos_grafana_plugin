@@ -352,7 +352,10 @@ var AddressToken = /** @class */ (function (_super) {
         return AddressToken.prim;
     };
     AddressToken.prototype.ToKey = function (_a) {
-        var bytes = _a.bytes;
+        var bytes = _a.bytes, string = _a.string;
+        if (string) {
+            return string;
+        }
         return encodePubKey(bytes);
     };
     AddressToken.prim = 'address';
@@ -502,6 +505,25 @@ var ListToken = /** @class */ (function (_super) {
     return ListToken;
 }(Token));
 
+var MutezToken = /** @class */ (function (_super) {
+    __extends(MutezToken, _super);
+    function MutezToken(val, idx, fac) {
+        var _this = _super.call(this, val, idx, fac) || this;
+        _this.val = val;
+        _this.idx = idx;
+        _this.fac = fac;
+        return _this;
+    }
+    MutezToken.prototype.Execute = function (val) {
+        return val.int;
+    };
+    MutezToken.prototype.ExtractSchema = function () {
+        return MutezToken.prim;
+    };
+    MutezToken.prim = 'mutez';
+    return MutezToken;
+}(Token));
+
 var tokens = [
     PairToken,
     NatToken,
@@ -512,7 +534,8 @@ var tokens = [
     BoolToken,
     OrToken,
     ContractToken,
-    ListToken
+    ListToken,
+    MutezToken
 ];
 
 function createToken(val, idx) {
