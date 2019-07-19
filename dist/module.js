@@ -25906,9 +25906,7 @@ var Tzscan = /** @class */ (function () {
     }
     Tzscan.prototype.hasUrl = function (url) {
         var lastOption = this.cache.get(url);
-        var now = new Date();
-        return (lastOption && lastOption.timestamp && now - lastOption.timestamp < 5000 // Cache for 5 seconds
-        );
+        return lastOption;
     };
     Tzscan.prototype.head = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -25930,7 +25928,8 @@ var Tzscan = /** @class */ (function () {
                         txs = [];
                         _a.label = 1;
                     case 1:
-                        if (!(!lastResult || lastResult.length == 10)) return [3 /*break*/, 3];
+                        if (!(!lastResult ||
+                            (lastResult.length % 10 == 0 && lastResult.length < 50))) return [3 /*break*/, 3];
                         return [4 /*yield*/, this.doRequest(this.baseUrl + "/v1/operations/" + address + "?type=Transaction&number=10&p=0")];
                     case 2:
                         lastResult = (_a.sent());

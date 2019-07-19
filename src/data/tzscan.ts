@@ -5,10 +5,7 @@ export class Tzscan {
 
   private hasUrl(url) {
     const lastOption = this.cache.get(url);
-    const now: any = new Date();
-    return (
-      lastOption && lastOption.timestamp && now - lastOption.timestamp < 5000 // Cache for 5 seconds
-    );
+    return lastOption;
   }
 
   public async head() {
@@ -18,7 +15,10 @@ export class Tzscan {
   public async transactions(address: string) {
     let lastResult: any[] | null = null;
     const txs = [] as any[];
-    while (!lastResult || lastResult.length == 10) {
+    while (
+      !lastResult ||
+      (lastResult.length % 10 == 0 && lastResult.length < 50)
+    ) {
       lastResult = (await this.doRequest(
         `${
           this.baseUrl
