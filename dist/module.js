@@ -321,6 +321,10 @@ var StringToken = /** @class */ (function (_super) {
     StringToken.prototype.ExtractSchema = function () {
         return StringToken.prim;
     };
+    StringToken.prototype.ToKey = function (_a) {
+        var string = _a.string;
+        return string;
+    };
     StringToken.prim = 'string';
     return StringToken;
 }(Token));
@@ -346,6 +350,10 @@ var AddressToken = /** @class */ (function (_super) {
     };
     AddressToken.prototype.ExtractSchema = function () {
         return AddressToken.prim;
+    };
+    AddressToken.prototype.ToKey = function (_a) {
+        var bytes = _a.bytes;
+        return encodePubKey(bytes);
     };
     AddressToken.prim = 'address';
     return AddressToken;
@@ -378,7 +386,7 @@ var MapToken = /** @class */ (function (_super) {
         var _this = this;
         return val.reduce(function (prev, current) {
             var _a;
-            return __assign({}, prev, (_a = {}, _a[encodePubKey(current.args[0].bytes)] = _this.ValueSchema.Execute(current.args[1]), _a));
+            return __assign({}, prev, (_a = {}, _a[_this.KeySchema.ToKey(current.args[0])] = _this.ValueSchema.Execute(current.args[1]), _a));
         }, {});
     };
     MapToken.prototype.ExtractSchema = function () {
