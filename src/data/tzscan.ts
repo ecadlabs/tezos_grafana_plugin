@@ -19,14 +19,12 @@ export class Tzscan {
   public async transactions(address: string) {
     let lastResult: any[] | null = null;
     const txs = [] as any[];
-    while (
-      !lastResult ||
-      (lastResult.length % 10 == 0 && lastResult.length < 50)
-    ) {
+    let page = 0;
+    while (!lastResult || (lastResult.length === 10 && txs.length < 50)) {
       lastResult = (await this.doRequest(
         `${
           this.baseUrl
-        }/v1/operations/${address}?type=Transaction&number=10&p=0`
+        }/v1/operations/${address}?type=Transaction&number=10&p=${page++}`
       )) as any[];
       txs.push(...lastResult);
       if (txs.length === 0) {

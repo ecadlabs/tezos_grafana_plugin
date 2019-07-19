@@ -25926,17 +25926,17 @@ var Tzscan = /** @class */ (function () {
     };
     Tzscan.prototype.transactions = function (address) {
         return __awaiter(this, void 0, void 0, function () {
-            var lastResult, txs;
+            var lastResult, txs, page;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         lastResult = null;
                         txs = [];
+                        page = 0;
                         _a.label = 1;
                     case 1:
-                        if (!(!lastResult ||
-                            (lastResult.length % 10 == 0 && lastResult.length < 50))) return [3 /*break*/, 3];
-                        return [4 /*yield*/, this.doRequest(this.baseUrl + "/v1/operations/" + address + "?type=Transaction&number=10&p=0")];
+                        if (!(!lastResult || (lastResult.length === 10 && txs.length < 50))) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this.doRequest(this.baseUrl + "/v1/operations/" + address + "?type=Transaction&number=10&p=" + page++)];
                     case 2:
                         lastResult = (_a.sent());
                         txs.push.apply(txs, lastResult);
