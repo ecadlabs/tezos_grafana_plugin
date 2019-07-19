@@ -100,10 +100,17 @@ function extractProp(query: string = '$', obj: {}) {
 
 function convertNumberIfPossible(num: any) {
   try {
+    if (num === 'True') {
+      return 1;
+    } else if (num === 'False') {
+      return 0;
+    }
+
     const converted = Number.parseFloat(num);
     if (Number.isNaN(converted)) {
       return num;
     }
+
     return converted;
   } catch (e) {
     return num;
