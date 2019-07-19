@@ -23,32 +23,41 @@ export class RPCClient {
   constructor(private baseUrl: string, private backend) {}
 
   contract(pkh: string, level = 'head'): Promise<Contract> {
-    return this.doRequest({
-      url: this.baseUrl + this.rpcContractEndpoint(level, pkh),
-      method: 'GET'
-    }).then(({ data }) => {
+    return this.doRequest(
+      {
+        url: this.baseUrl + this.rpcContractEndpoint(level, pkh),
+        method: 'GET'
+      },
+      level == 'head'
+    ).then(({ data }) => {
       return data as Contract;
     });
   }
 
   bigMapGet(key: any, pkh: string, level = 'head') {
-    return this.doRequest({
-      url: this.baseUrl + this.rpcBigMapGet(key.key.bytes, pkh, level),
-      method: 'POST',
-      data: key,
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(({ data }) => {
+    return this.doRequest(
+      {
+        url: this.baseUrl + this.rpcBigMapGet(key.key.bytes, pkh, level),
+        method: 'POST',
+        data: key,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      },
+      level == 'head'
+    ).then(({ data }) => {
       return data as any;
     });
   }
 
   operation(op: string, level = 'head'): Promise<any> {
-    return this.doRequest({
-      url: this.baseUrl + this.rpcOpEndpoint(level, op),
-      method: 'GET'
-    }).then(({ data }) => {
+    return this.doRequest(
+      {
+        url: this.baseUrl + this.rpcOpEndpoint(level, op),
+        method: 'GET'
+      },
+      level == 'head'
+    ).then(({ data }) => {
       return data as any;
     });
   }
@@ -63,10 +72,13 @@ export class RPCClient {
   }
 
   head(level = 'head'): Promise<Block> {
-    return this.doRequest({
-      url: this.baseUrl + this.rpcHeadEndpoint + level,
-      method: 'GET'
-    }).then(({ data }) => {
+    return this.doRequest(
+      {
+        url: this.baseUrl + this.rpcHeadEndpoint + level,
+        method: 'GET'
+      },
+      level == 'head'
+    ).then(({ data }) => {
       return data as Block;
     });
   }
@@ -89,16 +101,24 @@ export class RPCClient {
     });
   }
 
-  private hasOption(options) {
+  private hasOption(options, isTemp: boolean) {
     const lastOption = this.cache.get(options);
     const now: any = new Date();
+
+    if (!isTemp) {
+      return lastOption;
+    }
+
     return (
       lastOption && lastOption.timestamp && now - lastOption.timestamp < 5000 // Cache for 5 seconds
     );
   }
 
-  private doRequest(options): Promise<{ data: any; status: number }> {
-    if (!this.hasOption(options.url)) {
+  private doRequest(
+    options,
+    isCacheTemp = false
+  ): Promise<{ data: any; status: number }> {
+    if (!this.hasOption(options.url, isCacheTemp)) {
       this.cache.set(options.url, {
         result: this.backend.datasourceRequest(options),
         timestamp: new Date()

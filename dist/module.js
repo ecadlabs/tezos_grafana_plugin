@@ -25766,7 +25766,7 @@ var RPCClient = /** @class */ (function () {
         return this.doRequest({
             url: this.baseUrl + this.rpcContractEndpoint(level, pkh),
             method: 'GET'
-        }).then(function (_a) {
+        }, level == 'head').then(function (_a) {
             var data = _a.data;
             return data;
         });
@@ -25780,7 +25780,7 @@ var RPCClient = /** @class */ (function () {
             headers: {
                 'Content-Type': 'application/json'
             }
-        }).then(function (_a) {
+        }, level == 'head').then(function (_a) {
             var data = _a.data;
             return data;
         });
@@ -25790,7 +25790,7 @@ var RPCClient = /** @class */ (function () {
         return this.doRequest({
             url: this.baseUrl + this.rpcOpEndpoint(level, op),
             method: 'GET'
-        }).then(function (_a) {
+        }, level == 'head').then(function (_a) {
             var data = _a.data;
             return data;
         });
@@ -25809,7 +25809,7 @@ var RPCClient = /** @class */ (function () {
         return this.doRequest({
             url: this.baseUrl + this.rpcHeadEndpoint + level,
             method: 'GET'
-        }).then(function (_a) {
+        }, level == 'head').then(function (_a) {
             var data = _a.data;
             return data;
         });
@@ -25832,14 +25832,18 @@ var RPCClient = /** @class */ (function () {
             return data;
         });
     };
-    RPCClient.prototype.hasOption = function (options) {
+    RPCClient.prototype.hasOption = function (options, isTemp) {
         var lastOption = this.cache.get(options);
         var now = new Date();
+        if (!isTemp) {
+            return lastOption;
+        }
         return (lastOption && lastOption.timestamp && now - lastOption.timestamp < 5000 // Cache for 5 seconds
         );
     };
-    RPCClient.prototype.doRequest = function (options) {
-        if (!this.hasOption(options.url)) {
+    RPCClient.prototype.doRequest = function (options, isCacheTemp) {
+        if (isCacheTemp === void 0) { isCacheTemp = false; }
+        if (!this.hasOption(options.url, isCacheTemp)) {
             this.cache.set(options.url, {
                 result: this.backend.datasourceRequest(options),
                 timestamp: new Date()
