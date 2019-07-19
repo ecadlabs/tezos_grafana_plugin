@@ -25940,6 +25940,9 @@ var Tzscan = /** @class */ (function () {
                     case 2:
                         lastResult = (_a.sent());
                         txs.push.apply(txs, lastResult);
+                        if (txs.length === 0) {
+                            return [2 /*return*/, txs];
+                        }
                         return [3 /*break*/, 1];
                     case 3: return [2 /*return*/, txs];
                 }

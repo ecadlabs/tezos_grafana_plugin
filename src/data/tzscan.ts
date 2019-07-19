@@ -29,6 +29,9 @@ export class Tzscan {
         }/v1/operations/${address}?type=Transaction&number=10&p=0`
       )) as any[];
       txs.push(...lastResult);
+      if (txs.length === 0) {
+        return txs;
+      }
     }
     return txs;
   }
