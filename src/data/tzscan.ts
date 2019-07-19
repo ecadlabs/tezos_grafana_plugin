@@ -5,7 +5,11 @@ export class Tzscan {
 
   private hasUrl(url) {
     const lastOption = this.cache.get(url);
-    return lastOption;
+    const now: any = new Date();
+
+    return (
+      lastOption && lastOption.timestamp && now - lastOption.timestamp < 30000 // Cache for 30 seconds
+    );
   }
 
   public async head() {

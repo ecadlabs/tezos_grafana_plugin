@@ -25910,7 +25910,9 @@ var Tzscan = /** @class */ (function () {
     }
     Tzscan.prototype.hasUrl = function (url) {
         var lastOption = this.cache.get(url);
-        return lastOption;
+        var now = new Date();
+        return (lastOption && lastOption.timestamp && now - lastOption.timestamp < 30000 // Cache for 30 seconds
+        );
     };
     Tzscan.prototype.head = function () {
         return __awaiter(this, void 0, void 0, function () {
